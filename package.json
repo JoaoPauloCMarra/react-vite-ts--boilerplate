@@ -4,13 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "vite --open",
-    "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "npx eslint src",
     "lint:fix": "npm run lint -- --fix",
     "prettier": "npx prettier src --check",
     "prettier:fix": "npm run prettier -- --write",
-    "format": "npm run prettier:fix && npm run lint:fix"
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "build": "npm run format && tsc && vite build"
   },
   "dependencies": {
     "react": "^18.2.0",
