@@ -1,18 +1,38 @@
-import styled from 'styled-components';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
+import { ThemeProvider } from 'styled-components';
 
 import ErrorBoundary from '~/components/ErrorBoundary';
+import About from '~/pages/About';
+import Error from '~/pages/Error';
+import Home from '~/pages/Home';
+import NotFound from '~/pages/NotFound';
 
-const TempTitle = styled.h1`
-  color: #333;
-  font-size: 1.2rem;
-  text-align: center;
-`;
+import Theme, { GlobalStyle } from './Theme';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <ErrorBoundary>
-      <TempTitle>React Vite TS App</TempTitle>
-    </ErrorBoundary>
+    <RecoilRoot>
+      <ThemeProvider theme={Theme}>
+        <GlobalStyle />
+        <ErrorBoundary>
+          <QueryClientProvider client={queryClient}>
+            <Router>
+              <Routes>
+                <Route element={<Home />} errorElement={<Error />} path="/" />
+                <Route element={<About />} errorElement={<Error />} path="/about" />
+                <Route element={<NotFound />} path="*" />
+              </Routes>
+            </Router>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryClientProvider>
+        </ErrorBoundary>
+      </ThemeProvider>
+    </RecoilRoot>
   );
 }
 

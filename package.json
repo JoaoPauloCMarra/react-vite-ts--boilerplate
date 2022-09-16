@@ -5,20 +5,22 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "lint": "npx eslint src",
-    "lint:fix": "npm run lint -- --fix",
-    "prettier": "npx prettier src --check",
-    "prettier:fix": "npm run prettier -- --write",
-    "format": "npm run prettier:fix && npm run lint:fix",
+    "lint": "echo 'Linting code...' && eslint src --fix && echo 'done linting.'",
+    "prettier": "prettier src --check --write",
+    "format": "FORCE_COLOR=true && yarn prettier && yarn lint",
     "test": "jest -u --colors -o --cache --maxWorkers=50%",
     "test:all": "jest -u --colors -o --cache --all -i",
     "test:watch": "jest -u --colors -o --cache --watch --maxWorkers=25%",
-    "build": "npm run format && tsc && vite build",
+    "build": "tsc && vite build",
     "prepare": "husky install"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.3.4",
+    "@tanstack/react-query-devtools": "^4.3.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.0",
+    "recoil": "^0.7.5",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

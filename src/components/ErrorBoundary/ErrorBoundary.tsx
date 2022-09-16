@@ -1,6 +1,8 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
 
-import { Button, Message } from './style';
+import Button from '~/components/Button';
+
+import { Container, Message, Title } from './styles';
 
 interface Props {
   children?: ReactNode;
@@ -44,13 +46,13 @@ class ErrorBoundary extends Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <>
-          <Message>Oops, there was an issue!</Message>
+        <Container>
+          <Title>Oops, there was an issue!</Title>
           <Message>{this.state.message}</Message>
           <Button data-testid="errorboundary-button" onClick={this.onRetryClick}>
             Try again?
           </Button>
-        </>
+        </Container>
       );
     }
 

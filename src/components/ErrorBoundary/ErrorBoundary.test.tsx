@@ -11,7 +11,7 @@ const onRetry = jest.fn();
 describe('Error Boundary', () => {
   afterEach(cleanup);
 
-  it('it renders', () => {
+  it('it renders with proper text and onRetry works', () => {
     const { getByText, getByTestId, unmount } = render(
       <ErrorBoundary onRetry={onRetry}>
         <ThrowError />
