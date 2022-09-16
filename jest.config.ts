@@ -13,15 +13,15 @@ const config = async (): Promise<Config.InitialOptions> => {
     // setupFiles: ['<rootDir>/jest.env.ts'],
     setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
     transform: {
-      '^.+\\.(ts|tsx)?$': 'ts-jest',
+      '^.+\\.(ts|tsx)?$': [
+        'ts-jest',
+        {
+          isolatedModules: true,
+        },
+      ],
     },
     moduleNameMapper: {
       '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-    },
-    globals: {
-      'ts-jest': {
-        isolatedModules: true,
-      },
     },
   };
 };
