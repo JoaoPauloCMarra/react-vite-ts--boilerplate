@@ -9,7 +9,7 @@ import { languageState } from '~/store/languageStore';
 import { Container, Title } from './styles';
 
 const Home: FC = () => {
-  const { data, isFetching } = useUserInfo(1000);
+  const { data, isLoading } = useUserInfo();
   const [language, setLanguage] = useRecoilState(languageState);
 
   return (
@@ -25,7 +25,7 @@ const Home: FC = () => {
       <Button active={language === 'pt'} onClick={() => setLanguage('pt')}>
         pt
       </Button>
-      <pre>{!isFetching ? JSON.stringify(data, null, 2) : 'loading...'}</pre>
+      <pre>{!isLoading ? JSON.stringify(data, null, 2) : 'loading...'}</pre>
     </Container>
   );
 };
