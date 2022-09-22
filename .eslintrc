@@ -2,7 +2,7 @@
   "env": {
     "browser": true,
     "commonjs": true,
-    "es6": true,
+    "es2022": true,
     "node": true,
     "jest": true
   },
@@ -46,7 +46,7 @@
     "import/resolver": {
       "typescript": {
         "alwaysTryTypes": true,
-        "project": ["./tsconfig.json", "apps/*/tsconfig.json", "shared/*/tsconfig.json"]
+        "project": ["./tsconfig.json"]
       }
     }
   },

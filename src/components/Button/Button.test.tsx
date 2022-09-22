@@ -11,11 +11,10 @@ describe('Error Boundary', () => {
   it('it renders with proper text and onClick works', () => {
     const { getByTestId, unmount } = render(<Button onClick={onClick}>{text}</Button>);
 
-    const retryButton = getByTestId('button');
-    expect(retryButton).toHaveTextContent(text);
-    expect(retryButton).toBeInTheDocument();
+    const button = getByTestId('button');
+    expect(button).toHaveTextContent(text);
     expect(onClick).toBeCalledTimes(0);
-    fireEvent.click(retryButton);
+    fireEvent.click(button);
     expect(onClick).toBeCalledTimes(1);
 
     unmount();

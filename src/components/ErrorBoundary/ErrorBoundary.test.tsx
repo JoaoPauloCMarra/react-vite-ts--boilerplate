@@ -23,7 +23,6 @@ describe('Error Boundary', () => {
 
     const retryButton = getByTestId('errorboundary-button');
     expect(retryButton).toHaveTextContent('Try again?');
-    expect(retryButton).toBeInTheDocument();
     expect(onRetry).toBeCalledTimes(0);
     fireEvent.click(retryButton);
     expect(onRetry).toBeCalledTimes(1);

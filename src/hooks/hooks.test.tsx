@@ -20,7 +20,7 @@ describe('Hooks', () => {
   afterEach(cleanup);
 
   it('useUserInfo works as expected', async () => {
-    const { result } = renderHook(() => useUserInfo(), {
+    const { result, unmount } = renderHook(() => useUserInfo(), {
       wrapper: createWrapper(),
     });
 
@@ -28,5 +28,7 @@ describe('Hooks', () => {
 
     expect(result.current.data).toBeDefined();
     expect(result.current.data).toEqual(MOCK_USER_INFO);
+
+    unmount();
   });
 });
