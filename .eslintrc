@@ -19,6 +19,7 @@
   ],
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
@@ -59,7 +60,28 @@
     "no-unused-vars": "off",
     "no-redeclare": "off",
     "no-undef": "off",
+    "no-else-return": "error",
+    "no-floating-decimal": "error",
+    "no-sequences": "error",
+    "no-console": "warn",
     "semi": "error",
+    "dot-notation": "error",
+    "array-bracket-spacing": "error",
+    "computed-property-spacing": ["error", "never"],
+    "curly": "error",
+    "no-lonely-if": "error",
+    "no-unneeded-ternary": "error",
+    "one-var-declaration-per-line": "error",
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": false,
+        "avoidEscape": true
+      }
+    ],
+    "array-callback-return": "off",
+    "prefer-const": "error",
 
     // TypeScript specific rules
     "@typescript-eslint/consistent-type-assertions": "warn",
@@ -235,6 +257,7 @@
     "import/no-anonymous-default-export": "warn",
     "import/no-webpack-loader-syntax": "error",
     "import/no-named-as-default": "off",
+    "import/prefer-default-export": "off",
 
     // jsx-a11y specific rules
     "jsx-a11y/alt-text": "warn",

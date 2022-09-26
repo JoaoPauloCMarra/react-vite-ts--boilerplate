@@ -12,7 +12,13 @@ import NotFound from '~/pages/NotFound';
 
 import Theme, { GlobalStyle } from './Theme';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: 60000 * 5, // 5min
+    },
+  },
+});
 
 function App() {
   return (

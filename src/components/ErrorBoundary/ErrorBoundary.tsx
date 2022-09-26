@@ -1,6 +1,7 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
 
 import Button from '~/components/Button';
+import { logError } from '~/utils';
 
 import { Container, Message, Title } from './styles';
 
@@ -30,10 +31,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.log(' ');
-    console.log('A ErrorBoundary report:');
-    console.log({ error, errorInfo });
-    console.log(' ');
+    logError('A ErrorBoundary report:', `${String(error)} - ${String(errorInfo)}`);
   }
 
   onRetryClick() {

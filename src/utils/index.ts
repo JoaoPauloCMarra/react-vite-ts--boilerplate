@@ -1,9 +1,21 @@
-interface Params {
+/* eslint-disable no-console */
+
+export const logError = (title: string, message?: string) => {
+  console.error('Error found:\n');
+  if (message) {
+    console.error(`${title}: ${message}`);
+    return;
+  }
+  console.error(title);
+  console.error('\n');
+};
+
+interface ApiGetParams {
   route: string;
   mock?: unknown;
 }
 
-export const apiGet = async ({ route, mock }: Params) => {
+export const apiGet = async ({ route, mock }: ApiGetParams) => {
   if (process.env.NODE_ENV === 'test') {
     return mock;
   }
