@@ -1,9 +1,8 @@
 import { cleanup, renderHook, waitFor } from '@testing-library/react';
 
+import TestWrapper from '~/components/TestWrapper';
 import { MOCK_USER_INFO } from '~/hooks/mocks';
 import useUserInfo from '~/hooks/useUserInfo';
-
-import TestWrapper from './TestWrapper';
 
 describe('Hooks', () => {
   afterEach(cleanup);

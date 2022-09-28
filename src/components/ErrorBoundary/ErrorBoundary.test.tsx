@@ -1,5 +1,7 @@
 import { cleanup, fireEvent, render } from '@testing-library/react';
 
+import TestWrapper from '~/components/TestWrapper';
+
 import ErrorBoundary from '.';
 
 const ThrowError = () => {
@@ -16,6 +18,7 @@ describe('Error Boundary', () => {
       <ErrorBoundary onRetry={onRetry}>
         <ThrowError />
       </ErrorBoundary>,
+      { wrapper: TestWrapper },
     );
 
     const message = getByText('Oops, there was an issue!');
